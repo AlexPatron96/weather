@@ -10,9 +10,8 @@ function App() {
     const [count, setCount] = useState(0)
     const [infWeather, setInfWeather] = useState({})
     const [loader, setLoader] = useState(false)
-    const [lon, setLon] = useState(0)
-    const [lat, setLat] = useState(0)
-
+    let lat = ''
+    let lon = ''
     
 
     useEffect(() => {
@@ -20,8 +19,9 @@ function App() {
         const APIkey = `e98127907ef869ef98ba2eeaf4dde1ea`
         function success(pos) {
             const crd = pos.coords
-            setLat(crd.latitude)
-            setLon(crd.longitude)
+            lat = crd.latitude
+            lon = crd.longitude
+            console.log(lat, lon);
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`).
             then(res => setInfWeather(res.data))
         }
