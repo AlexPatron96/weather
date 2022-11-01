@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600;800&display=swap');
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.App{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    /* background-image: url(../public/climagi.gif); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
+}
+.loader {
+    background-color: rgba(245, 245, 245, 0.658);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.WeatherInf{
+    background-color: rgba(245, 245, 245, 0.836);
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 40px;
+    padding: 1rem;
+}
+.imgWeatherAct{
+    grid-area: img ;
+    font-size: 120px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.WeatherInf-Cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 40px;
+    grid-template-areas: 
+    "img inf"
+    "map map";
+    padding: 0.125rem;
+}
+
+.WeatherInf > h1 {
+    padding: 0.5rem;
+}
+.WeatherInf > h3 {
+    padding: 0.25rem;
+    font-size: 15px;
+}
+.WeatherInfAct{
+    grid-area: inf;
+}
+.WeatherInfAct > h3 {
+    padding:0.125rem 0;
+    font-size: 12px;
+    text-align: initial;
+
+}
+.bt-converter{
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(31, 114, 174);
+    border-bottom: 4px solid rgb(31, 114, 174);
+}
+.bt-converter:active{
+    transform: translateY(3px);
+	border-bottom: 2px solid rgb(31, 114, 174);
+}
+.mapweather{
+    grid-area: map;
+
+}
+.mapweather > a{
+    text-decoration: none;
+    color: gray;
+    font-size: 15px;
+    margin: 0 2rem;
+    padding: 0.125rem;
+}
+
+.mapweather :hover{
+    border-bottom: 4px solid rgb(31, 114, 174);
+    border-radius: 20px;
+    
+}
+.mapweather :hover:active{
+    border-bottom: 2px solid rgb(31, 114, 174);
+    transform: translateY(4px);
+    
+}
+aside{
+    font-size: 10px;
+    color: aliceblue;
+}

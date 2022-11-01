@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600;800&display=swap');
+:root {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(53, 51, 51);
+  font-size: 25px;
+  line-height: 24px;
+  background-image: url(/public/nat.jpg);
+}
