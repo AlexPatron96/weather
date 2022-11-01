@@ -3,12 +3,12 @@ import Mapweather from './Mapweather';
 
 
 const WeatherInf = ({ infWeather }) => {
-    //console.log(infWeather);
+    console.log(infWeather.weather?.[0].icon);
 
     const [converterUni, setConverterUni] = useState(false)
     let lat = infWeather.coord?.lat
     let lon = infWeather.coord?.lon
-    //console.log(lat, lon);
+    //console.log(lat, lon)+ ;
 
     const converter = () => {
         if (converterUni === false) {
@@ -21,24 +21,6 @@ const WeatherInf = ({ infWeather }) => {
     
     /* ============== ESTA PARTE SE PUEDE REALIZAR CON UN ARREGLO ALMACENADO EN UN JSON O JS  ==============*/
     /* PREFERI DEJARLO ALLI POR QUE NO CONOZCO TODOS LOS CLIMAS DISPONIBLES QUE CONTIENE EL API*/
-    
-    let weatherState = infWeather.weather?.[0].description
-    let imgweatherState = null
-    if (weatherState === 'light rain') {
-        imgweatherState = 'bx bx-cloud-light-rain'
-    } else if (weatherState === 'clear sky') {
-        imgweatherState = 'bx bx-sun'
-    } else if (weatherState === 'overcast clouds') {
-        imgweatherState = 'bx bxs-cloud'
-    } else if (weatherState === 'thunderstorm') {
-        imgweatherState = 'bx bx-cloud-lightning'
-    } else if (weatherState === 'broken clouds') {
-        imgweatherState = 'bx bxs-cloud'
-    } else if (weatherState === 'moderate rain') {
-        imgweatherState = 'bx bx-cloud-snow'
-    } else if (weatherState === 'moderate rain') {
-        imgweatherState = 'bx bx-cloud-snow'
-    }
 
     let temp = Math.round((infWeather.main?.temp) - 273)
     let tempImg = null
@@ -49,8 +31,9 @@ const WeatherInf = ({ infWeather }) => {
     }else if(temp < 25  ){
         tempImg = 'fa-temperature-half'
     }else if(temp < 50  ){
-        tempImg = 'fa-temperature-high'
-    }
+        tempImg = 'fa-temperature-high'}
+        
+        
     /*=======================================================================*/
 
 
@@ -66,8 +49,7 @@ const WeatherInf = ({ infWeather }) => {
             </h3>
             <div className='WeatherInf-Cont'>
                 <div className='imgWeatherAct'>
-                    <i className={imgweatherState + ' bx-burst'}></i>
-
+                    <img className='imgWeatherApi bx-burst' src={`https://openweathermap.org/img/wn/${infWeather.weather?.[0].icon}@4x.png`} alt="" />
                 </div>
                 <div className='WeatherInfAct'>
                     <h3>

@@ -13,18 +13,19 @@ function App() {
     const [lon, setLon] = useState(0)
     const [lat, setLat] = useState(0)
 
-    function success(pos) {
-        const crd = pos.coords
-        setLat(crd.latitude)
-        setLon(crd.longitude)
-    }
-    navigator.geolocation.getCurrentPosition(success)
+    
 
     useEffect(() => {
         setLoader(true)
         const APIkey = `e98127907ef869ef98ba2eeaf4dde1ea`
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`).
+        function success(pos) {
+            const crd = pos.coords
+            setLat(crd.latitude)
+            setLon(crd.longitude)
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`).
             then(res => setInfWeather(res.data))
+        }
+        navigator.geolocation.getCurrentPosition(success)
         setTimeout(() => {
             setLoader(false)
         }, 1000);
